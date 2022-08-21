@@ -1,16 +1,16 @@
-﻿@model IEnumerable<u19072237_HW04.Models.HIVpatient>
+﻿@model IEnumerable<u19072237_HW04.Models.DiabetesPatient>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Index3";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<br />
-<h2 style="text-align:center"> List of HIV Positive Patients</h2>
 
+<br />
+<h2 style="text-align:center"> List of Diabetic Patients</h2>
 <p>
-    <button type="button" class="btn btn-info">  @Html.ActionLink("Create New HIV Patient", "Create")</button>
-      
+    <button type="button" class="btn btn-info"> @Html.ActionLink("Create New Diabetes Patient", "Create3")</button>
 </p>
+
 <div class="row">
     <table class="table table-striped">
         <tr style="background-color: cornflowerblue">
@@ -18,22 +18,22 @@
                 NAME
             </th>
             <th>
-               SEX
+                SEX
             </th>
             <th>
-              AGE
+                AGE
             </th>
             <th>
-              ADMITTED TO CLINIC
+                ADMITTED TO CLINIC
             </th>
             <th>
-                CD4COUNT
+                GLUCOSE LEVEL
             </th>
             <th>
                 HEALTH CONDITION
             </th>
             <th>
-               BED ALLOCATION
+                BED ALLOCATION
             </th>
             <th></th>
         </tr>
@@ -54,7 +54,7 @@
                     @Html.DisplayFor(modelItem => item.isAdmitted)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.CD4Count)
+                    @Html.DisplayFor(modelItem => item.GlucoseLevel)
                 </td>
                 <td>
                     @item.HealthCondition();
@@ -64,18 +64,14 @@
                 </td>
                 <td>
                     <button type="button" class="btn btn-warning">
-                        @Html.ActionLink("Edit", "Edit", new { id = item.ID })
+                        @Html.ActionLink("Edit", "Create3", new { id = item.ID })
                     </button>
 
-                    <button type="button" class="btn btn-danger" >DELETE</button>
+                    <button type="button" class="btn btn-danger">
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    </button>
                 </td>
             </tr>
         }
     </table>
 </div>
-
-<script>
-
-   
-     
-</script>

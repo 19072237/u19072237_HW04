@@ -124,10 +124,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PatientController.cs" />
+    <Compile Include="Controllers\ScreeningController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CoronaVirusPatient.cs" />
+    <Compile Include="Models\CovidScreening.cs" />
     <Compile Include="Models\HIVpatient.cs" />
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\DiabetesPatient.cs" />
@@ -268,6 +270,12 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Patient\Index.cshtml" />
     <Content Include="Views\Patient\hivPatientForm.cshtml" />
+    <Content Include="Views\Patient\Index2.cshtml" />
+    <Content Include="Views\Patient\cvPatientForm.cshtml" />
+    <Content Include="Views\Patient\Index3.cshtml" />
+    <Content Include="Views\Patient\diabetesPatientForm.cshtml" />
+    <Content Include="Views\Screening\Index.cshtml" />
+    <Content Include="Views\Screening\ScreeningForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

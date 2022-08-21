@@ -44,7 +44,7 @@ namespace u19072237_HW04.Models
             {
                 return "Allocated";
             }
-            return "No need for bed";
+            return "Not Allocated";
 
             
         }

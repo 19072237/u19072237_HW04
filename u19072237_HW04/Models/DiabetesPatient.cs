@@ -5,28 +5,32 @@ using System.Web;
 
 namespace u19072237_HW04.Models
 {
-    public class TuberculosisPatient : Patient
+    public class DiabetesPatient : Patient
     {
-        private string mGlucoseLevel;
-        public string GlucoseLevel { get =>mGlucoseLevel; set => mGlucoseLevel= value; }
+        private int mGlucoseLevel;
+        public int GlucoseLevel { get =>mGlucoseLevel; set => mGlucoseLevel= value; }
 
-        public TuberculosisPatient()
+        public DiabetesPatient()
         {
 
         }
 
-        public TuberculosisPatient(int id, string name, string sex, int age, bool admitted, string glucoselevel):  base(id, name, sex, age, admitted)
+        public DiabetesPatient(int id, string name, string sex, int age, bool admitted, int glucoselevel):  base(id, name, sex, age, admitted)
         {
             GlucoseLevel = glucoselevel;
         }
 
         public override string HealthCondition()
         {
-            if (GlucoseLevel == "High")
+            if (GlucoseLevel > 125)
             {
-                return "Need a Doctor";
+                return "Has Diabetes";
             }
-            return "Healthy";
+            else if( GlucoseLevel > 100 & GlucoseLevel < 125)
+            {
+                return "Prediabetes";
+            }
+            return "Diabetes Free";
         }
     }
 }

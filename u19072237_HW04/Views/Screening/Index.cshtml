@@ -1,0 +1,62 @@
+﻿@model IEnumerable<u19072237_HW04.Models.CovidScreening>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<h2 style="text-align:center"> List of Covid-19 creenings</h2>
+
+
+
+<p>
+    <button type="button" class="btn btn-info"> @Html.ActionLink("Conduct New Screening", "Create")</button>  
+</p>
+<div class="row">
+    <table class="table table-striped">
+        <tr style="background-color: cornflowerblue">
+            <th>
+                Travelled ToAHigh Risk Country
+            </th>
+            <th>
+                Contact With Positive Person
+            </th>
+            <th>
+                Have Symptoms
+            </th>
+            <th>
+                Eligibility For Covid Test
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Travelled)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Contact)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HaveSymptoms)
+                </td>
+                <td>
+                    @item.EligibleForCovidTest();
+                </td>
+                <td>
+                    <button type="button" class="btn btn-warning">
+                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) 
+                    </button>
+                    <button type="button" class="btn btn-danger">
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    </button>
+
+
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
