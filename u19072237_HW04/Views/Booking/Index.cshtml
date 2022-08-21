@@ -1,7 +1,7 @@
-﻿@model IEnumerable<u19072237_HW04.Models.DiabetesPatient>
+﻿@model IEnumerable<u19072237_HW04.Models.MakeBooking>
 
 @{
-    ViewBag.Title = "Index3";
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <head>
@@ -13,34 +13,23 @@
 </head>
 <body>
     <br />
-    <h2 style="text-align:center"> List of Diabetic Patients</h2>
-    <p>
-        <button type="button" class="btn btn-info"> @Html.ActionLink("Create New Diabetes Patient", "Create3")</button>
-    </p>
+    <h2 style="text-align:center"> List of Bookings</h2>
 
+    <p>
+        <button type="button" class="btn btn-info"> @Html.ActionLink("Make New Booking", "Create")  </button>
+
+    </p>
     <div class="row">
         <table class="table table-striped">
             <tr style="background-color: cornflowerblue">
                 <th>
-                    NAME
+                    @Html.DisplayNameFor(model => model.Name)
                 </th>
                 <th>
-                    SEX
+                    @Html.DisplayNameFor(model => model.Date)
                 </th>
                 <th>
-                    AGE
-                </th>
-                <th>
-                    ADMITTED TO CLINIC
-                </th>
-                <th>
-                    GLUCOSE LEVEL
-                </th>
-                <th>
-                    HEALTH CONDITION
-                </th>
-                <th>
-                    BED ALLOCATION
+                    @Html.DisplayNameFor(model => model.Reason)
                 </th>
                 <th></th>
             </tr>
@@ -52,31 +41,23 @@
                         @Html.DisplayFor(modelItem => item.Name)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Sex)
+                        @Html.DisplayFor(modelItem => item.Date)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Age)
+                        @Html.DisplayFor(modelItem => item.Reason)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.isAdmitted)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.GlucoseLevel)
-                    </td>
-                    <td>
-                        @item.HealthCondition();
-                    </td>
-                    <td>
-                        @item.BedAllocated();
-                    </td>
-                    <td>
+
                         <button type="button" class="btn btn-warning">
-                            @Html.ActionLink("Edit", "Create3", new { id = item.ID })
+                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ })
                         </button>
 
-                        <button type="button" class="btn btn-danger" onclick=" myFunction()">
+                        <button type="button" class="btn btn-danger" onclick="myFunction()">
                             DELETE
                         </button>
+
+
+
                     </td>
                 </tr>
             }
@@ -92,3 +73,4 @@
 
 
 </body>
+

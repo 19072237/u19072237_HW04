@@ -33,8 +33,6 @@ namespace u19072237_HW04.Controllers
 
         public ActionResult ProcessCreate(HIVpatient hivpatient)
         {
-
-
             return View("Details", hivpatient);
         }
 

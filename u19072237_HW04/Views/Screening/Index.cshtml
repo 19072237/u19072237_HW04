@@ -4,59 +4,77 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<br />
-<h2 style="text-align:center"> List of Covid-19 creenings</h2>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" type="text/css" media="screen" />
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+</head>
+<body>
+    <br />
+    <h2 style="text-align:center"> List of Covid-19 creenings</h2>
 
 
 
-<p>
-    <button type="button" class="btn btn-info"> @Html.ActionLink("Conduct New Screening", "Create")</button>  
-</p>
-<div class="row">
-    <table class="table table-striped">
-        <tr style="background-color: cornflowerblue">
-            <th>
-                Travelled ToAHigh Risk Country
-            </th>
-            <th>
-                Contact With Positive Person
-            </th>
-            <th>
-                Have Symptoms
-            </th>
-            <th>
-                Eligibility For Covid Test
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Travelled)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Contact)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.HaveSymptoms)
-                </td>
-                <td>
-                    @item.EligibleForCovidTest();
-                </td>
-                <td>
-                    <button type="button" class="btn btn-warning">
-                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) 
-                    </button>
-                    <button type="button" class="btn btn-danger">
-                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                    </button>
-
-
-                </td>
+    <p>
+        <button type="button" class="btn btn-info"> @Html.ActionLink("Conduct New Screening", "Create")</button>
+    </p>
+    <div class="row">
+        <table class="table table-striped">
+            <tr style="background-color: cornflowerblue">
+                <th>
+                    Travelled ToAHigh Risk Country
+                </th>
+                <th>
+                    Contact With Positive Person
+                </th>
+                <th>
+                    Have Symptoms
+                </th>
+                <th>
+                    Eligibility For Covid Test
+                </th>
+                <th></th>
             </tr>
-        }
 
-    </table>
-</div>
+            @foreach (var item in Model)
+            {
+                <tr id="myTableRow">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Travelled)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Contact)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HaveSymptoms)
+                    </td>
+                    <td>
+                        @item.EligibleForCovidTest();
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-warning">
+                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ })
+                        </button>
+                        <button type="button" class="btn btn-danger" onclick="myFunction()">
+                            DELETE
+                        </button>
+
+
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+    <script>
+        function myFunction() {
+
+            $('#myTableRow').remove();
+        }
+    </script>
+</body>
+
+

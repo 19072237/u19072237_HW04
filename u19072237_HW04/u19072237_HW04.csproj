@@ -122,6 +122,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PatientController.cs" />
     <Compile Include="Controllers\ScreeningController.cs" />
@@ -131,11 +132,13 @@
     <Compile Include="Models\CoronaVirusPatient.cs" />
     <Compile Include="Models\CovidScreening.cs" />
     <Compile Include="Models\HIVpatient.cs" />
+    <Compile Include="Models\MakeBooking.cs" />
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\DiabetesPatient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\ClassDigram1.html_page-0001.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -276,10 +279,10 @@
     <Content Include="Views\Patient\diabetesPatientForm.cshtml" />
     <Content Include="Views\Screening\Index.cshtml" />
     <Content Include="Views\Screening\ScreeningForm.cshtml" />
+    <Content Include="Views\Booking\Index.cshtml" />
+    <Content Include="Views\Booking\makeBookingForm.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />

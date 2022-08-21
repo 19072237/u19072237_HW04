@@ -4,78 +4,90 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<br />
-<h2 style="text-align:center"> List of HIV Positive Patients</h2>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-<p>
-    <button type="button" class="btn btn-info">  @Html.ActionLink("Create New HIV Patient", "Create")</button>
-      
-</p>
-<div class="row">
-    <table class="table table-striped">
-        <tr style="background-color: cornflowerblue">
-            <th>
-                NAME
-            </th>
-            <th>
-               SEX
-            </th>
-            <th>
-              AGE
-            </th>
-            <th>
-              ADMITTED TO CLINIC
-            </th>
-            <th>
-                CD4COUNT
-            </th>
-            <th>
-                HEALTH CONDITION
-            </th>
-            <th>
-               BED ALLOCATION
-            </th>
-            <th></th>
-        </tr>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" type="text/css" media="screen" />
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Sex)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Age)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.isAdmitted)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CD4Count)
-                </td>
-                <td>
-                    @item.HealthCondition();
-                </td>
-                <td>
-                    @item.BedAllocated();
-                </td>
-                <td>
-                    <button type="button" class="btn btn-warning">
-                        @Html.ActionLink("Edit", "Edit", new { id = item.ID })
-                    </button>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+</head>
+<body>
+    <br />
+    <h2 style="text-align:center"> List of HIV Positive Patients</h2>
 
-                    <button type="button" class="btn btn-danger" >DELETE</button>
-                </td>
+    <p>
+        <button type="button" class="btn btn-info">  @Html.ActionLink("Create New HIV Patient", "Create")</button>
+
+    </p>
+    <div class="row">
+        <table class="table table-striped">
+            <tr style="background-color: cornflowerblue">
+                <th>
+                    NAME
+                </th>
+                <th>
+                    SEX
+                </th>
+                <th>
+                    AGE
+                </th>
+                <th>
+                    ADMITTED TO CLINIC
+                </th>
+                <th>
+                    CD4COUNT
+                </th>
+                <th>
+                    HEALTH CONDITION
+                </th>
+                <th>
+                    BED ALLOCATION
+                </th>
+                <th></th>
             </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr id="myTableRow">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Sex)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Age)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.isAdmitted)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CD4Count)
+                    </td>
+                    <td>
+                        @item.HealthCondition();
+                    </td>
+                    <td>
+                        @item.BedAllocated();
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-warning">
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ID })
+                        </button>
+
+                        <button type="button" class="btn btn-danger" onclick="myFunction()">DELETE</button>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    <script>
+        function myFunction() {
+
+            $('#myTableRow').remove();
         }
-    </table>
-</div>
+    </script>
 
-<script>
+</body>
 
-   
-     
-</script>
