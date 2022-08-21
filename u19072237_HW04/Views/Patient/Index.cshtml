@@ -57,7 +57,7 @@
             @item.HealthCondition();
         </td>
         <td>
-            @item.BedAllocated();
+            @item.BedAllocated(HtmlHelper);
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
