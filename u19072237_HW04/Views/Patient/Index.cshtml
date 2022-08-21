@@ -1,0 +1,69 @@
+﻿@model IEnumerable<u19072237_HW04.Models.HIVpatient>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+           Name
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sex)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isAdmitted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CD4Count)
+        </th>
+        <th>
+            Health Condition
+        </th>
+        <th>
+            Bed Allocation
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sex)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Age)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isAdmitted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CD4Count)
+        </td>
+        <td>
+            @item.HealthCondition();
+        </td>
+        <td>
+            @item.BedAllocated();
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
